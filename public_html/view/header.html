@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Deviation  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100328
+
+-->
+<html lang="pt-br">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.excelexport.js"></script>
+
+
+<!-- <script type="text/javascript" src="js/tradutor.js"></script> -->
+
+<title>SISAEV</title>
+<link href="../style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+ 
+    $(".excluir").unbind("click");
+    $(".excluir").bind("click", function () {
+
+
+        var checkeds = new Array();
+        $("input[type=checkbox][name='check[]']:checked").each(function(){
+
+           // valores inteiros usa-se parseInt
+           //checkeds.push(parseInt($(this).val()));
+           // string
+           checkeds.push( $(this).val());
+        });
+         
+
+    var $selecionados = document.querySelectorAll('td [type="checkbox"]:checked')
+
+         alert($selecionados.length);
+    for(let i = 0; i < $selecionados.length; i++) {
+           //alert(i);
+        $selecionados[i].parentNode.parentNode.remove()
+    }
+
+    dados = checkeds;
+
+       alert(dados);
+
+       $.ajax({
+          type: "POST",
+          url: "../controller/sequenciaController.php",
+          data: dados,
+          success: function(data){
+           // console.log(data);
+
+              alert(data);
+          } 
+        });
+
+
+
+        });
+
+});
+
+
+
+function apagarSelecionadosSSSS() {
+      alert('Dai');
+    var $selecionados = document.querySelectorAll('td [type="checkbox"]:checked')
+    alert($selecionados.length);
+    for(let i = 0; i < $selecionados.length; i++) {
+           alert(i);
+        $selecionados[i].parentNode.parentNode.remove()
+    }
+}
+
+
+
+</script> 
+
+<style>
+    /* Remove combobox*/
+  #google_translate_element {
+        display: none;
+  }
+
+    /* Remove barra do google*/
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+    body {
+        position: static !important;
+        top: 0 !important;
+    }
+    
+
+
+.tradutor{
+
+    float: right;
+    margin: 0;
+    width: 200px;  
+}
+       
+
+</style>
+
+</head>
+
+<body>
+<div id="wrapper">
+
+  <div id="header">
+
+     <div id="google_translate_element"></div>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<div  class="tradutor">
+   
+    <ul class="nav" >
+    <a href="javascript:trocarIdioma('pt');" alt="portugues" ><img width="40px" height="25px" src="../images/br.png" /></a>
+    <a href="javascript:trocarIdioma('en');" alt="ingles" ><img width="40px" height="25px" src="../images/en.png"  /></a>
+    <a href="javascript:trocarIdioma('es');" alt="espanhol" ><img width="40px" height="25px" src="../images/es.png"  /></a>
+    </ul>
+
+</div>
+
+    <div id="logo">
+      <h1><a href="#">IVET   </a></h1>
+      <p> Influenza Virus Evolution  <a href="http://templated.co" rel="nofollow">Tool</a></p>
+    </div>
+  </div>
+
+    </div>
+  <!-- end #header -->
+  
+
+
+<script type="text/javascript">
+
+var comboGoogleTradutor = null; //Varialvel global
+
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt',
+            includedLanguages: 'en,es,pt',
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+        }, 'google_translate_element');
+
+        comboGoogleTradutor = document.getElementById("google_translate_element").querySelector(".goog-te-combo");
+    }
+
+    function changeEvent(el) {
+        if (el.fireEvent) {
+            el.fireEvent('onchange');
+        } else {
+            var evObj = document.createEvent("HTMLEvents");
+
+            evObj.initEvent("change", false, true);
+            el.dispatchEvent(evObj);
+        }
+    }
+
+    function trocarIdioma(sigla) {
+
+        if (comboGoogleTradutor) {
+            comboGoogleTradutor.value = sigla;
+            changeEvent(comboGoogleTradutor);//Dispara a troca
+        }
+    }
+
+
+</script>
+
+
+
+
+
+ 
