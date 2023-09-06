@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public_html:/var/www/html
+    depends_on:
+      - database
+
+  database:
+    image: mariadb:10.2
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_DATABASE: yourdatabase
+    volumes:
+      - ./ivetune_geral.sql:/docker-entrypoint-initdb.d/ivetune_geral.sql
