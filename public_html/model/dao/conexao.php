@@ -17,7 +17,7 @@ class Conexao{
 	   // $this->senha = "";
 	   
 	   
-	   $this->servidor = "db.painel-web.uneb.br";
+	   $this->servidor = "database";
 	   $this->banco = "ivetune_geral";
 	   $this->usuario = "ivetune_user";
 	   $this->senha = "dB@gfctasi1cfcf";
