@@ -1,6 +1,6 @@
 # ivet
 
-# Dependencies
+# Dependencies (according to creator)
 
 - php 7.3.7
 - apache 2.4.39
@@ -8,7 +8,7 @@
 - html, css, jquery, java
 - ???
 
-# Commands actually used
+# Dependencies used on localhost test
 
 `sudo apt install sql-server`
 
@@ -17,6 +17,8 @@
 `sudo apt install php`
 
 `sudo apt install php-mysql`
+
+Everything on Ubuntu
 
 # add line below <?php in index.php and grafico.php:
 
@@ -42,3 +44,4 @@
 `ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';`
 
 # Then it works.
+# Check this fork for currently modified code. Needs use to see if it works...
