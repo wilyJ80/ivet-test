@@ -40,8 +40,10 @@ Everything on Ubuntu
 # PAGE ONLY LOADS IF %this->servidor = "127.0.0.1:3306" is used and localhost:8080 is the opened host/port
 - ???
 
-# MySQL Command to change password
+# MySQL Command to change password, this was needed and the FINAL STEP
 `ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';`
+
+# php.ini was added to add pdo-mysqli and related extensions, try not using it
 
 # Then it works.
 # Check this fork for currently modified code. Needs use to see if it works...
