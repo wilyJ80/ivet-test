@@ -17,11 +17,10 @@ class Conexao{
 	   // $this->senha = "";
 	   
 	   
-	   $this->servidor = "db.painel-web.uneb.br";
+	   $this->servidor = "127.0.0.1:3306";
 	   $this->banco = "ivetune_geral";
-	   $this->usuario = "ivetune_user";
-	   $this->senha = "dB@gfctasi1cfcf";
-
+	   $this->usuario = "root";
+	   $this->senha = "";
 
 		
 		try {
