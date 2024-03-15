@@ -10,7 +10,7 @@
 
 # Dependencies used on localhost test
 
-`sudo apt install sql-server`
+`sudo apt install mysql-server`
 
 `sudo apt install apache2`
 
@@ -41,7 +41,7 @@ Everything on Ubuntu
 - ???
 
 # MySQL Command to change password, this was needed and the FINAL STEP
-`ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';`
+`ALTER USER 'root'@'localhost' IDENTIFIED BY '';`
 
 # php.ini was added to add pdo-mysqli and related extensions, try not using it
 
