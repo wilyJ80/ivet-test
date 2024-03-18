@@ -7,7 +7,7 @@ sudo apt install -y apache2 php php-mysql mysql-server unzip
 
 # Unpacking database
 #
-unzip ivetune_geral.sql public_html/
+unzip ivetune_geral.zip public_html/
 
 # Setting up MySQL
 #
