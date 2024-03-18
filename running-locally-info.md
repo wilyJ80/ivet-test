@@ -47,3 +47,6 @@ Everything on Ubuntu
 
 # Then it works.
 # Check this fork for currently modified code. Needs use to see if it works...
+
+# ERROR 2002 (HY000): Can't connect to local server through socket
+- use `service mysql start`
