@@ -1,4 +1,5 @@
 <?php
+ini_set('user_ini.filename', 'php.ini');
 ini_set( 'display_errors', 0 );
 session_start();
 
