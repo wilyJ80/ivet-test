@@ -1,7 +1,7 @@
 FROM archlinux
 
-# Install MariaDB, PHP, and other required packages
-RUN pacman -Sy --noconfirm mariadb mariadb-clients php php-fpm sudo
+# Install MariaDB, PHP, and required PHP extensions
+RUN pacman -Sy --noconfirm mariadb mariadb-clients php sudo
 
 # Create a new user and set its password
 RUN useradd -m -s /bin/bash newuser && \
@@ -15,17 +15,15 @@ RUN mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 COPY ivetune_geral.sql /docker-entrypoint-initdb.d/
 COPY public_html /var/www/html
 
-# Expose the MariaDB and PHP-FPM ports
-EXPOSE 3306 9000
+# Copy a custom php.ini configuration file if needed
+COPY php.ini /etc/php/php.ini
 
-# Start MariaDB, initialize the database, and then start PHP-FPM
-CMD /bin/sh -c " \
-    # Start MariaDB server \
-    mysqld_safe --datadir=/var/lib/mysql & \
-    sleep 10 && \
-    mysqladmin ping && \
-    # Source the SQL file into MariaDB \
-    mysql < /docker-entrypoint-initdb.d/ivetune_geral.sql && \
-    # Start PHP-FPM \
-    # php-fpm --nodaemonize \
-    php -S 0.0.0.0:8000 -t /var/www/html"
+# Expose the ports for MariaDB and the PHP server
+EXPOSE 3306 8000
+
+# Add a custom entrypoint script to manage the services
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Run the entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
